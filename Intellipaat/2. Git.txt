@@ -1,0 +1,54 @@
+Git: is a version-control system for tracking changes in computer files and coordinating work on those
+files among multiple people. It is primarily used for source-code management in software development,
+but it can be used to keep track of changes in any set of file.
+
+Git commands:
+- Creating Repository
+#
+git init
+git config user.email <email>
+git config user.name <username>
+
+
+- Making Changes
+#
+git status
+git add [the name of file]
+git add .
+git commit -m "first commit"
+
+- Syncing Repositories
+#
+git remote add origin "<URL to repository>"
+git remote rm origin
+git push origin <name of the branch>
+git pull <link>
+git clone <link>
+
+- Parallel Development
+git branch <name of new branch>
+git branch
+git branch -D <name of the branch>
+git checkout <name of the branch>
+git log
+git stash
+git revert <commit-id>
+git checkout <commit-id>
+git diff <commit-idbefore> <commit-idafter>
+
+
+-
+1:03:41 
+
+
+--
+git init = make git file on file, starting git	 
+git status = lihat status file
+git [nama file] / git . = persiapan ke staging
+git commit -m "[message]": go to commit
+git log --oneline: look up history
+git branch: check branch
+git checkout -b [branch name]: create and move to the new branch
+git checkout [branch name]: create a new branch
+git branch -d [branch name]: delete branch
+

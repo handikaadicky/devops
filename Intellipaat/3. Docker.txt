@@ -1,0 +1,149 @@
+Docker Container Lifecycle
+Docker Hub -> (Pull - Push) <- Docker Engine -> Docker Images 
+-> Run
+-> Stop
+-> Delete
+
+1. Docker Operation
+#
+sudo apt install docker.io
+docker --version
+docker pull <image-name>
+docker images
+docker run -it -d <image-name> = run container
+docker stop <container-id>
+docker ps
+docker ps -a
+docker exec -it <container-id> bash
+docker kill <container-id>
+docker rm -f <container-id>
+docker rmi <image-id>
+docker rm -f $(sudo docker ps -a -q)
+docker run -t -p 81:80 -d <image-name> = 82(open):80(source)
+
+Push to Hub
+#
+docker login
+docker push <(username dockerhub)/<images-name>:<tagname>
+
+Make DockerFile
+#
+docker build --tag <image's-name>:<tag>
+
+BindMount
+#
+docker run -it -v <path-local-source>:<path-target-container> -d <images> = bind mount
+
+Volume
+#
+
+docker volume create <name-of-the-volume> = volume
+docker volume ls
+docker run -it --mount source=<name-of-volume>,target=<inside container path-to-directory> -d <image-name> = 1 image volume share to another container, and depend u use the volume for the image with running volume syntax
+docker cp <path location of the file> <path target location in container> <container-id>
+
+2. Saving changes to a Container
+#
+docker commit <container-id> <name-for-image> : replicate base image, to the new name that had been saved
+
+3. Introduction to Dockerfile
+Various Commands in Dockerfile
+#
+FROM ubuntu
+RUN apt-get update
+RUN apt-get -y install apache2
+ADD <source> <destination in container>
+CMD apachectl -D FOREGROUND = to start the container
+ENTRYPOINT apachectl -D FOREGROUND = to start the container without argument
+ENV name devops dicky = define environment variables in the container run-time
+
+4. Docker Compose
+Example Docker Compose
+#
+
+<the name of docker compose: docker-compose.yaml>
+
+version:'3.3'
+service:
+	db:
+	image: mysql:5.7
+	volumes:
+	- db_data:/var/lib/mysql
+	- restart: always
+	environment 
+	MYSQL_ROOT_PASSWORD: somewordpress
+	MYSQL_DATABASE: wordpress
+	MYSQL_USER: wordpress
+	MYSQL_PASSWORD: wordpress
+	
+	wordpress:
+	depends_on:
+	- db
+	image: wordpress:latest
+	port:
+	- "8000:80"
+	restart: always
+	environment:
+	WORDPRESS_DB_HOST: db:3306
+	WORDPRESS_DB_USER: wordpress
+	WORDPRESS_DB_PASSWORD: wordpress
+	volume:
+	db_data:
+
+
+
+--
+Extra:
+
+Installing Apache
+#
+apt-get update
+apt-get install apache2
+service apache start
+service apache status
+
+AWS
+sudo usermode -aG docker $USER
+
+Programmer Zaman Now
+#
+docker container create --name __ <image>
+docker container start <name-of-container/container-id>
+docker container create <image> <command> : ex command: -p 8080:27017 (akses dari luar dengan port 8080 dari dalem 27017)
+docker network create __
+docket network ls
+docker network connect <network-name> <container>
+docker container inspect <container>
+docker volume create <name-of-volume>
+-v <name-of-volume>:<source mounting>
+-v <path local storage>:<source mounting> = save data in local
+docker image prune = delete image without container 
+docker container prune
+docker network prune
+docker system df  
+
+docker compose: buat file -> docker-compose.yaml
+#
+version: "_"
+
+services:
+	<name-of-service>:
+		container_name:_
+		image: __
+		ports:
+		 - __:__  
+		networks:
+		 - __
+		depends_on:
+		- <service>
+		- <service>
+		environment:
+		- __
+
+networks:
+	<name-networks>:
+	name: __
+
+#Kitematic -> UI create Docker
+
+

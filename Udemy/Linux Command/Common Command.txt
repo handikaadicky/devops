@@ -1,0 +1,44 @@
+cd
+ls
+ls -l
+ls -r
+ls --help
+su 
+sudo su
+apt-get
+apt-get install __
+apt-get remove
+!! <do before>
+apt-cache search __
+apt-cache policy __
+~
+dpkg -i
+chown user:group __
+chmod --- __ (6 write rw-, 4 read r-- ,7 rwx)
+rm
+mkdir
+-R (Recursive/at all)
+touch
+*
+rm -rf
+rm __ _/*.txt
+mv
+touch
+
+Find
+#
+find _ -type f -name "_._"
+find _ -type f -iname "_._"
+find _ -type f -not -iname "_._"
+find _ -type f -perm "_._"
+find _ -size +1M
+find _ -size -1M
+find _ -maxdepth _ -type f -name "_._" -size -_
+
+grep "html" ./*
+grep -i "html" ./*
+grep -n -i "html" ./* = tell the row number
+
+find _ -type f -name "_._" -exec grep -i "html" ./* {} +
+
+

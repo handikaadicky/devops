@@ -1,0 +1,13 @@
+kubernetes master
+- kube-api server
+- kube control manager
+- kube cloud manager
+- kube schduler
+
+kubernetes node/worker
+- kubelet
+- node
+- container
+
+- kubernetes
+ 

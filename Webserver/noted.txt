@@ -1,0 +1,19 @@
+#Setting:
+username: startergeek
+password: startergeek
+
+#Flow Course:
+1. Download Virtual Box, OS Linux
+2. Install on Virtual Box
+3. Use OS on Virtual Box
+4. Provision OS
+5. Device -> guest (more lightly)
+6. Located to the new disk, run VBoxLinuxAdditions.run
+
+
+#CLI:
+./ : current directory
+sudo apt-get install unity-tweak-tool : install tweak tool
+
+#Glossary:
+1. Swap Area: It's a part of memory when RAM is running out, swap area act as fake RAM

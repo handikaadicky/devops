@@ -1,0 +1,75 @@
+DevOps is a software development methodology which improves the collaboration
+between developers and operations team usng various automation tools. These
+automation tools are implemented using various stages which are a part of Devops Lifecycle
+
+Dev:
+continuous development
+- Plan 
+- Code
+continuous testing
+- Build
+- Test
+
+-->output docker to ops
+
+#CI
+
+Ops:
+continuous deployment
+- Release (internal release, eksternal release)
+- Deploy (automating test on server)
+continuous monitoring
+- Operate (operating the code end-to-end on software)
+- Monitor
+
+--> using docker
+
+
+#ContinuousIntegration:
+Cdev -> CTes -> #CI -> CDep -> CMon -> #CI -> Cdev ~
+
+1. CDev: This is stage involves commiting code to version control tools
+such as Git or SVN. For maintaining different version of the code, and tools like
+Ant, Maven, Gradle for building/packaging the code into executable file that
+can be forwarded to the QAs for testing
+Tools: Git
+
+2. Cintegration:The stage is a critical point in the whole DevOps Lifecycle. It deals with integrating
+the different stages of the devops lifecycle, and is therefore the key in automating the whole
+Devops Process.
+Tools: Jenkins
+
+3. CDeployment: In this tage the code is built, the environment of the application 
+is containerized and is pushed on the desired server. The key processess in this stage
+are Configuration Management, Virtualization, and Containerization
+Tools: Docker, Puppet, Ansible
+
+4. CTest: The stage deals with automated testing of the application pushed by the developer.
+If there is an error, the message is sent back to the integration tool, this tool in turn notifies
+the developer of the error. If the test was a success, the message is sent to integration tool which
+pushed the build on the production server
+Tools: Selenium
+
+5. CMonitoring: the stage continuously monitor the deployed application for bugs or crashed. It can
+also be setup to collect user feedback. the collected data is then sent to the developers to improve
+the application
+
+-------
+DevOps Tools Description:
+- Jenkins: is an open source automation server written in Java. Jenkins helps to automate the non-human
+part of the software development process, with continuous integration and facilitating technical aspect 
+of continuous delivery
+
+- Nagios: is an open-source devops tools which is used for monitoring systems, networks and infrastructure.
+It also offers monitoring and alerting services for any configurable event.
+- Kubernetes
+- Git: is a Distributed version control system for tracking changes in computer files and coordinating
+work on those files among multiple people. It is primarily used for source-code management in software 
+development, but it can be used to keep track of changes in any set of file.
+- Docker: Virtualization & Containerization
+- Puppet: Configuration Management
+- Ansible: Configuration Management
+- Selenium: is a portable software-testing framework used for web applications. It is an open source tool
+which is used for automating the tests carried out on web browsers (Web Application are tested using
+any web browser)
+
