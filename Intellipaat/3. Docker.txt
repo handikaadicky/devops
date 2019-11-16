@@ -42,6 +42,15 @@ docker volume ls
 docker run -it --mount source=<name-of-volume>,target=<inside container path-to-directory> -d <image-name> = 1 image volume share to another container, and depend u use the volume for the image with running volume syntax
 docker cp <path location of the file> <path target location in container> <container-id>
 
+Docker Swarm
+#
+docker swarm init --advertise-addr=<ip-private>
+copy the command to the other server/worker
+docker swarm leave
+docker service create --name <name-of-theservice> --replicas <number of replicas> -p <port> <images>
+docker service scale <name-of-theservice>=<number-of-replicas>
+docker service rme
+
 2. Saving changes to a Container
 #
 docker commit <container-id> <name-for-image> : replicate base image, to the new name that had been saved
